@@ -1,24 +1,15 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
         int n = numbers.length;
-        int left = 0;
-        int right = n -1;
-        int[] res = new int[2];
+        int i = 0;
+        int j = n - 1;
 
-        while(left  < right){
-            int sum = numbers[left]+numbers[right];
-            if(sum == target){
-                res[0] = left + 1;
-                res[1] = right+1;
-                return res;
-            }else if(sum < target){
-                left++;
-            }else{
-                right--;
-            }
-
+        while(i<j){
+            int sum = numbers[i] + numbers[j];
+            if(sum == target)return new int[]{i+1,j+1};
+            else if(sum < target)i++;
+            else j--;
         }
-        return res;
-        
+        return new int[]{};
     }
 }
