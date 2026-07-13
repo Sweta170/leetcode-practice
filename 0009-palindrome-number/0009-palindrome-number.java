@@ -1,19 +1,22 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        int org = x;
+        if(x <0){
+            return false;
+        }
+        int n = x;
         int rev = 0;
-        
 
-        while(x>0){
-            int lastdig = x % 10;
-            x /= 10;
-            rev = (rev * 10) + lastdig;
+        while(n>0){
+            int ld = n % 10;
+            rev = rev * 10 + ld;
+            n=n/10;
 
         }
-        if(rev == org){
+        if(rev == x){
             return true;
+        }else {
+            return false;
         }
-        return false;
         
     }
 }
